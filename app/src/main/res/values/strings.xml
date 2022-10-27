@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Gym App</string>
+  <string name="retry_action">Retry</string>
+  <string name="error_occurred">An error occured!</string>
+</resources>

@@ -3,7 +3,6 @@ package tech.michalik.gymapp.listscreen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -20,10 +19,6 @@ class StreetWorkoutListViewModel(
 
   val state = MutableStateFlow<ItemsListState>(ItemsListState.Loading)
 
-  init {
-    loadData()
-  }
-
   fun loadData() {
     viewModelScope.launch(Dispatchers.IO) {
       try {
@@ -31,7 +26,6 @@ class StreetWorkoutListViewModel(
         state.value = ItemsListState.Loading
 
         val items = api.fetchAll()
-
 
         state.value = items
           .map { StreetWorkoutViewItem(title = it.name, subtitle = it.address, photo = it.photo) }
@@ -43,5 +37,9 @@ class StreetWorkoutListViewModel(
         state.value = ItemsListState.Error(message = exception.message.orEmpty())
       }
     }
+  }
+
+  init {
+    loadData()
   }
 }

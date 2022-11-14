@@ -28,6 +28,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.glide.GlideImage
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import tech.michalik.gymapp.NetworkModule
 import tech.michalik.gymapp.R
 import timber.log.Timber
@@ -35,6 +37,15 @@ import timber.log.Timber
 /**
  * Created by jaroslawmichalik
  */
+
+object AndroidDispatcherFacade: DispatcherFacade{
+  override val io: CoroutineDispatcher
+    get() = Dispatchers.IO
+  override val main: CoroutineDispatcher
+    get() = Dispatchers.Main
+
+}
+
 @Composable
 fun ItemsListScreen() {
   val viewModel = remember {

@@ -3,4 +3,5 @@
 # ANDROID StreetWorkout app
 
 As seen on YT
-https://www.youtube.com/channel/UCIy6viL5g5qbt7ejbmQ1gtA
+
+https://www.youtube.com/@jarekmichalik

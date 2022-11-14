@@ -50,7 +50,8 @@ object AndroidDispatcherFacade: DispatcherFacade{
 fun ItemsListScreen() {
   val viewModel = remember {
     StreetWorkoutListViewModel(
-      api = NetworkModule().api
+      api = NetworkModule().api,
+      dispatcherFacade = AndroidDispatcherFacade
     )
   }
 
